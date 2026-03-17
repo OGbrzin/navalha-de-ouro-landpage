@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navalha de Ouro | Barbearia Premium em Santo André</title>
+    <meta name="description" content="A Tradição da Navalha. A Precisão do Ouro. Experiência premium em corte, barba e visagismo para o homem moderno em Santo André - SP.">
+    
+    <!-- Favicon (Fallback Icon) -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23C87941' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M3 21l18-18'/><path d='M21 21L3 3'/></svg>">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS v4 CDN -->
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+
+    <!-- Tailwind Configuration -->
+    <style type="text/tailwindcss">
+        @theme {
+            --color-onyx: #0F0F0F;
+            --color-copper: #C87941;
+            --color-bone: #E6E6E6;
+            --color-leather: #1C1C1C;
+            --font-heading: 'Oswald', sans-serif;
+            --font-sans: 'Inter', sans-serif;
+        }
+
+        /* Custom Base Styles */
+        body {
+            @apply bg-onyx text-bone font-sans antialiased overflow-x-hidden;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            @apply font-heading tracking-tight;
+        }
+
+        .glass-panel {
+            @apply bg-leather/80 backdrop-blur-md border border-white/5;
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+        
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="relative">
+
+    <!-- Navigation -->
+    <header class="fixed w-full top-0 z-50 transition-all duration-300 glass-panel" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-24">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center gap-2 cursor-pointer" onclick="window.scrollTo(0,0)">
+                    <i data-lucide="scissors" class="text-copper w-8 h-8" stroke-width="1.5"></i>
+                    <div class="flex flex-col">
+                        <span class="font-heading text-2xl font-bold tracking-widest text-white leading-none">NAVALHA</span>
+                        <span class="font-heading text-sm font-medium tracking-[0.3em] text-copper leading-none mt-1">DE OURO</span>
+                    </div>
+                </div>
+
+                <!-- Desktop Menu -->
+                <nav class="hidden md:flex space-x-8 items-center">
+                    <a href="#sobre" class="text-sm font-medium hover:text-copper transition-colors">A BARBEARIA</a>
+                    <a href="#servicos" class="text-sm font-medium hover:text-copper transition-colors">SERVIÇOS</a>
+                    <a href="#portfolio" class="text-sm font-medium hover:text-copper transition-colors">PORTFÓLIO</a>
+                    <a href="#experiencias" class="text-sm font-medium hover:text-copper transition-colors">EXPERIÊNCIAS</a>
+                    <a href="#contato" class="text-sm font-medium hover:text-copper transition-colors">CONTATO</a>
+                    <a href="https://wa.me/559999999999" target="_blank" class="bg-copper text-onyx px-6 py-2.5 font-heading uppercase text-sm font-bold tracking-wider hover:bg-white transition-colors duration-300">
+                        AGENDAR HORÁRIO
+                    </a>
+                </nav>
+
+                <!-- Mobile menu button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-bone hover:text-copper p-2 focus:outline-none">
+                        <i data-lucide="menu" class="w-7 h-7" stroke-width="1.5"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Start -->
+        <div id="mobile-menu" class="hidden md:hidden glass-panel absolute w-full border-t border-white/5">
+            <div class="px-4 pt-2 pb-6 space-y-1">
+                <a href="#sobre" class="block px-3 py-3 text-base font-medium hover:text-copper border-b border-white/5">A Barbearia</a>
+                <a href="#servicos" class="block px-3 py-3 text-base font-medium hover:text-copper border-b border-white/5">Serviços</a>
+                <a href="#portfolio" class="block px-3 py-3 text-base font-medium hover:text-copper border-b border-white/5">Portfólio</a>
+                <a href="#experiencias" class="block px-3 py-3 text-base font-medium hover:text-copper border-b border-white/5">Experiências</a>
+                <a href="#contato" class="block px-3 py-3 text-base font-medium hover:text-copper border-b border-white/5">Contato</a>
+                <div class="pt-4 px-3">
+                    <a href="https://wa.me/559999999999" target="_blank" class="block w-full text-center bg-copper text-onyx px-6 py-3 font-heading uppercase text-sm font-bold tracking-wider hover:bg-white transition-colors">
+                        Agendar Horário
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section id="hero" class="relative h-screen flex items-center justify-center">
+            <!-- Background Image -->
+            <div class="absolute inset-0 w-full h-full">
+                <!-- Fallback to Unsplash for premium barbershop image -->
+                <img src="https://images.unsplash.com/photo-1585747860715-2ba37e788b70?q=80&w=2074&auto=format&fit=crop" alt="Ambiente Barbearia Clássica" class="w-full h-full object-cover object-center" />
+                <!-- Dark Overlay -->
+                <div class="absolute inset-0 bg-gradient-to-b from-onyx/80 via-onyx/60 to-onyx"></div>
+            </div>
+
+            <div class="relative z-10 text-center px-4 max-w-4xl mx-auto mt-20 reveal active">
+                <span class="text-copper font-heading uppercase tracking-[0.3em] text-sm md:text-base mb-6 block font-medium">Desde 2026</span>
+                <h1 class="text-5xl md:text-7xl lg:text-8xl font-black text-white mb-6 uppercase leading-[0.9]">
+                    A Tradição da <span class="text-transparent bg-clip-text bg-gradient-to-r from-copper to-[#E8A57A]">Navalha</span>.<br>
+                    A Precisão do <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#E8A57A] to-copper">Ouro</span>.
+                </h1>
+                <p class="text-lg md:text-xl text-bone/80 font-light mb-10 max-w-2xl mx-auto leading-relaxed">
+                    Redefinindo o conceito de barbearia em Santo André. Experiência premium em corte, barba e visagismo para o homem moderno.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                    <a href="https://wa.me/559999999999" target="_blank" class="w-full sm:w-auto bg-copper text-onyx px-8 py-4 font-heading uppercase text-sm font-bold tracking-widest hover:bg-white transition-colors duration-300">
+                        Agendar Horário
+                    </a>
+                    <a href="#servicos" class="w-full sm:w-auto border border-copper text-copper px-8 py-4 font-heading uppercase text-sm font-bold tracking-widest hover:bg-copper hover:text-onyx transition-colors duration-300">
+                        Nossos Serviços
+                    </a>
+                </div>
+            </div>
+
+            <!-- Scroll Indicator -->
+            <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 flex flex-col items-center animate-bounce">
+                <span class="text-xs uppercase tracking-widest text-bone/50 mb-2 font-heading">Descubra</span>
+                <i data-lucide="chevron-down" class="text-copper w-6 h-6" stroke-width="1.5"></i>
+            </div>
+        </section>
+
+        <!-- Sobre & Diferenciais -->
+        <section id="sobre" class="py-24 bg-onyx relative overflow-hidden">
+            <div class="absolute top-0 right-0 w-1/2 h-full bg-leather/30 -skew-x-12 transform origin-top-right"></div>
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <div class="grid lg:grid-cols-2 gap-16 items-center">
+                    <div class="reveal">
+                        <span class="text-copper font-heading uppercase tracking-widest text-sm mb-4 block font-medium">A Autoridade</span>
+                        <h2 class="text-4xl md:text-5xl font-bold text-white mb-6 uppercase">O Refúgio do <br><span class="text-copper">Homem Moderno</span></h2>
+                        <p class="text-bone/80 font-light mb-8 leading-relaxed text-lg">
+                            Mais do que um simples corte. Na Navalha de Ouro, unimos a precisão técnica da escola clássica com o visagismo contemporâneo. Cada detalhe, desde a toalha quente até o aroma dos óleos essenciais, foi pensado para elevar sua imagem e autoconfiança.
+                        </p>
+                        <a href="#servicos" class="inline-flex items-center gap-2 text-copper font-heading uppercase font-bold tracking-widest hover:text-white transition-colors duration-300">
+                            Conheça nossos serviços <i data-lucide="arrow-right" class="w-5 h-5" stroke-width="2"></i>
+                        </a>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 reveal">
+                        <div class="glass-panel p-8 reveal border-b-2 border-transparent hover:border-copper transition-all duration-300 group">
+                            <i data-lucide="scissors" class="text-copper w-10 h-10 mb-6 group-hover:scale-110 transition-transform duration-300"></i>
+                            <h3 class="font-heading text-xl font-bold text-white mb-3">Visagismo Masculino</h3>
+                            <p class="text-bone/70 text-sm font-light">Cortes meticulosamente desenhados para harmonizar com as linhas do seu rosto e estilo de vida.</p>
+                        </div>
+                        <div class="glass-panel p-8 reveal border-b-2 border-transparent hover:border-copper transition-all duration-300 group sm:translate-y-8">
+                            <i data-lucide="user-check" class="text-copper w-10 h-10 mb-6 group-hover:scale-110 transition-transform duration-300"></i>
+                            <h3 class="font-heading text-xl font-bold text-white mb-3">Mestres Barbeiros</h3>
+                            <p class="text-bone/70 text-sm font-light">Profissionais altamente treinados na técnica tradicional da tesoura e navalha de lâmina fixa.</p>
+                        </div>
+                        <div class="glass-panel p-8 reveal border-b-2 border-transparent hover:border-copper transition-all duration-300 group sm:-translate-y-8 sm:col-span-2 md:col-span-1 md:col-start-2">
+                            <i data-lucide="coffee" class="text-copper w-10 h-10 mb-6 group-hover:scale-110 transition-transform duration-300"></i>
+                            <h3 class="font-heading text-xl font-bold text-white mb-3">Ritual de Cuidado</h3>
+                            <p class="text-bone/70 text-sm font-light">Um ambiente pensado para seu conforto: café expresso, bebidas premium e toalhas aquecidas.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Menu de Serviços -->
+        <section id="servicos" class="py-24 bg-leather relative border-t border-white/5">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-3xl mx-auto mb-16 reveal">
+                    <span class="text-copper font-heading uppercase tracking-widest text-sm mb-4 block font-medium">Excelência Técnica</span>
+                    <h2 class="text-4xl md:text-5xl font-bold text-white mb-6 uppercase">Menu de Serviços</h2>
+                    <div class="h-1 w-24 bg-copper mx-auto"></div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <!-- Serviço 1 -->
+                    <div class="bg-onyx p-8 border border-white/5 hover:border-copper/50 transition-all duration-300 group reveal">
+                        <div class="w-14 h-14 rounded-full bg-leather flex items-center justify-center mb-6 group-hover:bg-copper transition-colors duration-300">
+                            <i data-lucide="scissors" class="text-copper group-hover:text-onyx transition-colors duration-300" stroke-width="1.5"></i>
+                        </div>
+                        <h3 class="font-heading text-2xl font-bold text-white mb-3 flex justify-between items-center">
+                            Corte de Assinatura
+                        </h3>
+                        <p class="text-bone/70 text-sm font-light mb-6">Trabalho de arquitetura capilar. Fade perfeito, clássicos na tesoura e acabamento impecável.</p>
+                        <p class="font-heading text-copper text-xl font-bold">R$ 65</p>
+                    </div>
+
+                    <!-- Serviço 2 -->
+                    <div class="bg-onyx p-8 border border-white/5 hover:border-copper/50 transition-all duration-300 group reveal mt-0 lg:mt-8">
+                        <div class="w-14 h-14 rounded-full bg-leather flex items-center justify-center mb-6 group-hover:bg-copper transition-colors duration-300">
+                            <i data-lucide="droplet" class="text-copper group-hover:text-onyx transition-colors duration-300" stroke-width="1.5"></i>
+                        </div>
+                        <h3 class="font-heading text-2xl font-bold text-white mb-3">Barboterapia</h3>
+                        <p class="text-bone/70 text-sm font-light mb-6">Ritual relaxante com toalha extremamente quente, óleos essenciais, massagem facial e navalha livre.</p>
+                        <p class="font-heading text-copper text-xl font-bold">R$ 55</p>
+                    </div>
+
+                    <!-- Serviço 3 -->
+                    <div class="bg-onyx p-8 border border-white/5 hover:border-copper/50 transition-all duration-300 group reveal">
+                        <div class="w-14 h-14 rounded-full bg-leather flex items-center justify-center mb-6 group-hover:bg-copper transition-colors duration-300">
+                            <i data-lucide="brush" class="text-copper group-hover:text-onyx transition-colors duration-300" stroke-width="1.5"></i>
+                        </div>
+                        <h3 class="font-heading text-2xl font-bold text-white mb-3">Camuflagem</h3>
+                        <p class="text-bone/70 text-sm font-light mb-6">Cobertura sutil e natural de fios brancos, devolvendo o aspecto jovial sem parecer artificial.</p>
+                        <p class="font-heading text-copper text-xl font-bold">R$ 45</p>
+                    </div>
+
+                    <!-- Serviço 4 -->
+                    <div class="bg-onyx p-8 border border-white/5 hover:border-copper/50 transition-all duration-300 group reveal mt-0 lg:mt-8">
+                        <div class="w-14 h-14 rounded-full bg-leather flex items-center justify-center mb-6 group-hover:bg-copper transition-colors duration-300">
+                            <i data-lucide="waves" class="text-copper group-hover:text-onyx transition-colors duration-300" stroke-width="1.5"></i>
+                        </div>
+                        <h3 class="font-heading text-2xl font-bold text-white mb-3">Tratamento VIP</h3>
+                        <p class="text-bone/70 text-sm font-light mb-6">Lavagem profunda com massagem no couro cabeludo, hidratação premium e finalização cênica.</p>
+                        <p class="font-heading text-copper text-xl font-bold">R$ 40</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Galeria de Estilos (Portfólio) -->
+        <section id="portfolio" class="py-1 bg-onyx">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 w-full">
+                <!-- Imagem 1 -->
+                <div class="relative group overflow-hidden aspect-square reveal">
+                    <img src="https://images.unsplash.com/photo-1622286342621-4bd786c2447c?q=80&w=1770&auto=format&fit=crop" alt="Low Fade" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-onyx via-onyx/40 to-transparent opacity-80 lg:opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-8">
+                        <h4 class="font-heading text-2xl font-bold text-white mb-1 uppercase translate-y-4 group-hover:translate-y-0 transition-transform duration-300">Low Fade Ideal</h4>
+                        <p class="text-copper font-medium text-sm translate-y-4 group-hover:translate-y-0 transition-transform duration-300 delay-75">Corte de Assinatura</p>
+                        <a href="https://instagram.com" target="_blank" class="absolute top-6 right-6 w-10 h-10 bg-white/10 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-copper transition-colors opacity-0 group-hover:opacity-100 duration-300 delay-100">
+                            <i data-lucide="instagram" class="text-white w-5 h-5" stroke-width="1.5"></i>
+                        </a>
+                    </div>
+                </div>
+                <!-- Imagem 2 -->
+                <div class="relative group overflow-hidden aspect-square reveal">
+                    <img src="https://images.unsplash.com/photo-1599351431202-1e0f0137899a?q=80&w=1770&auto=format&fit=crop" alt="Barba Lenhador" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-onyx via-onyx/40 to-transparent opacity-80 lg:opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-8">
+                        <h4 class="font-heading text-2xl font-bold text-white mb-1 uppercase translate-y-4 group-hover:translate-y-0 transition-transform duration-300">Barba Lenhador</h4>
+                        <p class="text-copper font-medium text-sm translate-y-4 group-hover:translate-y-0 transition-transform duration-300 delay-75">Alinhamento & Barboterapia</p>
+                    </div>
+                </div>
+                <!-- Imagem 3 -->
+                <div class="relative group overflow-hidden aspect-square reveal">
+                    <img src="https://images.unsplash.com/photo-1605497788044-5a32c7078486?q=80&w=1770&auto=format&fit=crop" alt="Executive Cut" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-onyx via-onyx/40 to-transparent opacity-80 lg:opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-8">
+                        <h4 class="font-heading text-2xl font-bold text-white mb-1 uppercase translate-y-4 group-hover:translate-y-0 transition-transform duration-300">Executive Cut</h4>
+                        <p class="text-copper font-medium text-sm translate-y-4 group-hover:translate-y-0 transition-transform duration-300 delay-75">Corte Clássico na Tesoura</p>
+                    </div>
+                </div>
+                <!-- Imagem 4 -->
+                <div class="relative group overflow-hidden aspect-square reveal">
+                    <img src="img/antes-e-depois.png" alt="Antes e Depois" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-onyx via-onyx/40 to-transparent opacity-80 lg:opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-8">
+                        <h4 class="font-heading text-2xl font-bold text-white mb-1 uppercase translate-y-4 group-hover:translate-y-0 transition-transform duration-300">A Transformação</h4>
+                        <p class="text-copper font-medium text-sm translate-y-4 group-hover:translate-y-0 transition-transform duration-300 delay-75">Visagismo Aplicado</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experiências (Combos) -->
+        <section id="experiencias" class="py-24 bg-onyx relative overflow-hidden">
+            <div class="absolute inset-0 flex justify-center items-center opacity-5 pointer-events-none">
+                <i data-lucide="scissors" class="w-full h-full max-w-4xl max-h-[800px]"></i>
+            </div>
+            
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <div class="text-center max-w-3xl mx-auto mb-16 reveal">
+                    <span class="text-copper font-heading uppercase tracking-widest text-sm mb-4 block font-medium">Planos Exclusivos</span>
+                    <h2 class="text-4xl md:text-5xl font-bold text-white mb-6 uppercase">Assinaturas e Combos</h2>
+                    <p class="text-bone/70 text-lg font-light">Para o homem que exige o pacote completo. Nossas experiências combinam o melhor do nosso menu em um ritual inesquecível.</p>
+                </div>
+
+                <div class="grid md:grid-cols-3 gap-8 items-center">
+                    <!-- Combo Básico -->
+                    <div class="glass-panel p-8 border border-white/5 reveal">
+                        <h3 class="font-heading text-2xl font-bold text-white mb-2 uppercase">Combo Navalha</h3>
+                        <div class="flex items-baseline gap-2 mb-6 text-copper">
+                            <span class="text-4xl font-bold font-heading">R$ 100</span>
+                        </div>
+                        <ul class="space-y-4 mb-8 text-bone/80 font-light text-sm">
+                            <li class="flex items-center gap-3"><i data-lucide="check" class="text-copper w-5 h-5 flex-shrink-0"></i> Corte de Assinatura</li>
+                            <li class="flex items-center gap-3"><i data-lucide="check" class="text-copper w-5 h-5 flex-shrink-0"></i> Barboterapia Clássica</li>
+                            <li class="flex items-center gap-3"><i data-lucide="check" class="text-copper w-5 h-5 flex-shrink-0"></i> Lavagem Especial</li>
+                        </ul>
+                        <a href="https://wa.me/559999999999" class="block w-full text-center border border-white/20 text-white hover:bg-white hover:text-onyx px-6 py-3 font-heading uppercase text-sm font-bold tracking-wider transition-colors duration-300">
+                            Selecionar
+                        </a>
+                    </div>
+
+                    <!-- Combo Ouro (Destaque) -->
+                    <div class="bg-gradient-to-br from-leather to-onyx p-10 border-2 border-copper transform md:-translate-y-4 shadow-[0_0_30px_rgba(200,121,65,0.15)] relative reveal">
+                        <div class="absolute top-0 right-0 bg-copper text-onyx px-4 py-1 font-heading text-xs font-bold uppercase tracking-widest transform translate-x-2 -translate-y-1/2">
+                            Mais Pedido
+                        </div>
+                        <h3 class="font-heading text-3xl font-bold text-white mb-2 uppercase">Experiência Ouro</h3>
+                        <div class="flex items-baseline gap-2 mb-6 text-copper">
+                            <span class="text-5xl font-bold font-heading">R$ 150</span>
+                        </div>
+                        <ul class="space-y-4 mb-8 text-bone/90 font-light">
+                            <li class="flex items-center gap-3"><i data-lucide="check" class="text-copper w-5 h-5 flex-shrink-0"></i> Corte de Assinatura Premium</li>
+                            <li class="flex items-center gap-3"><i data-lucide="check" class="text-copper w-5 h-5 flex-shrink-0"></i> Barboterapia com Óleos Essenciais</li>
+                            <li class="flex items-center gap-3"><i data-lucide="check" class="text-copper w-5 h-5 flex-shrink-0"></i> Massagem Capilar e Facial</li>
+                            <li class="flex items-center gap-3"><i data-lucide="check" class="text-copper w-5 h-5 flex-shrink-0"></i> Dose de Cerveja Artesanal ou Whisky</li>
+                        </ul>
+                        <a href="https://wa.me/559999999999" class="block w-full text-center bg-copper text-onyx hover:bg-white px-6 py-4 font-heading uppercase text-sm font-bold tracking-wider transition-colors duration-300 flex justify-center items-center gap-2">
+                            <i data-lucide="message-circle" class="w-5 h-5"></i> Agendar via WhatsApp
+                        </a>
+                    </div>
+
+                    <!-- Combo Noivo -->
+                    <div class="glass-panel p-8 border border-white/5 reveal">
+                        <h3 class="font-heading text-2xl font-bold text-white mb-2 uppercase">Dia do Noivo</h3>
+                        <div class="flex items-baseline gap-2 mb-6 text-copper">
+                            <span class="text-xl font-heading tracking-wider">Sob Consulta</span>
+                        </div>
+                        <ul class="space-y-4 mb-8 text-bone/80 font-light text-sm">
+                            <li class="flex items-center gap-3"><i data-lucide="check" class="text-copper w-5 h-5 flex-shrink-0"></i> Atendimento Fechado para o Grupo</li>
+                            <li class="flex items-center gap-3"><i data-lucide="check" class="text-copper w-5 h-5 flex-shrink-0"></i> Experiência Ouro Completa</li>
+                            <li class="flex items-center gap-3"><i data-lucide="check" class="text-copper w-5 h-5 flex-shrink-0"></i> Buffet de Bebidas e Petiscos</li>
+                            <li class="flex items-center gap-3"><i data-lucide="check" class="text-copper w-5 h-5 flex-shrink-0"></i> Suporte para Fotógrafos</li>
+                        </ul>
+                        <a href="https://wa.me/559999999999" class="block w-full text-center border border-white/20 text-white hover:bg-white hover:text-onyx px-6 py-3 font-heading uppercase text-sm font-bold tracking-wider transition-colors duration-300">
+                            Falar com Consultor
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Depoimentos -->
+        <section class="py-24 bg-leather border-t border-white/5 relative">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16 reveal">
+                    <i data-lucide="quote" class="text-copper/20 w-16 h-16 mx-auto mb-6"></i>
+                    <h2 class="text-3xl md:text-4xl font-bold text-white uppercase font-heading">O Que Nossos Clientes Dizem</h2>
+                </div>
+
+                <div class="grid md:grid-cols-3 gap-8">
+                    <!-- Review 1 -->
+                    <div class="bg-onyx p-8 border border-white/5 reveal">
+                        <div class="flex gap-1 text-copper mb-4">
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                        </div>
+                        <p class="text-bone/80 font-light italic mb-6">"Primeira vez que corto o cabelo e sinto que realmente houve um estudo sobre o formato do meu rosto. O atendimento e a pontualidade são impecáveis."</p>
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 bg-leather rounded-full flex items-center justify-center font-heading font-bold text-copper">RM</div>
+                            <div>
+                                <h5 class="text-white font-medium">Rafael Mendes</h5>
+                                <p class="text-xs text-bone/50">Cliente há 1 ano</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Review 2 -->
+                    <div class="bg-onyx p-8 border border-white/5 reveal">
+                        <div class="flex gap-1 text-copper mb-4">
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                        </div>
+                        <p class="text-bone/80 font-light italic mb-6">"A barboterapia é fantástica. Ambiente luxuoso, a toalha quente com o aroma relaxa totalmente depois de um dia longo de trabalho. Recomendo muito!"</p>
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 bg-leather rounded-full flex items-center justify-center font-heading font-bold text-copper">CO</div>
+                            <div>
+                                <h5 class="text-white font-medium">Carlos Oliveira</h5>
+                                <p class="text-xs text-bone/50">Experiência Ouro</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Review 3 -->
+                    <div class="bg-onyx p-8 border border-white/5 reveal">
+                        <div class="flex gap-1 text-copper mb-4">
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                        </div>
+                        <p class="text-bone/80 font-light italic mb-6">"Fiz meu Dia do Noivo na Navalha de Ouro. Meus padrinhos e eu fomos muito bem atendidos, cerveja gelada, cortes que duraram a noite toda impecáveis."</p>
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 bg-leather rounded-full flex items-center justify-center font-heading font-bold text-copper">TM</div>
+                            <div>
+                                <h5 class="text-white font-medium">Thiago Martins</h5>
+                                <p class="text-xs text-bone/50">Dia do Noivo</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer & Contact -->
+    <footer id="contato" class="bg-onyx border-t border-white/10 pt-20 pb-10 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+                
+                <!-- Brand Info -->
+                <div class="lg:col-span-1">
+                    <div class="flex items-center gap-2 mb-6">
+                        <i data-lucide="scissors" class="text-copper w-6 h-6" stroke-width="1.5"></i>
+                        <span class="font-heading text-xl font-bold tracking-widest text-white">NAVALHA DE OURO</span>
+                    </div>
+                    <p class="text-bone/60 text-sm font-light mb-6">A excelência em cortes masculinos e visagismo. O seu santuário de autoconfiança.</p>
+                    <div class="flex gap-4">
+                        <a href="#" class="w-10 h-10 bg-leather rounded-full flex items-center justify-center text-white hover:bg-copper hover:text-onyx transition-colors">
+                            <i data-lucide="instagram" class="w-4 h-4"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-leather rounded-full flex items-center justify-center text-white hover:bg-copper hover:text-onyx transition-colors">
+                            <i data-lucide="facebook" class="w-4 h-4"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Links -->
+                <div>
+                    <h4 class="font-heading text-white font-bold uppercase tracking-wider mb-6">Navegação</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#sobre" class="text-bone/60 hover:text-copper text-sm transition-colors">A Barbearia</a></li>
+                        <li><a href="#servicos" class="text-bone/60 hover:text-copper text-sm transition-colors">Serviços</a></li>
+                        <li><a href="#portfolio" class="text-bone/60 hover:text-copper text-sm transition-colors">Portfólio</a></li>
+                        <li><a href="#experiencias" class="text-bone/60 hover:text-copper text-sm transition-colors">Planos & Combos</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact -->
+                <div class="lg:col-span-2">
+                    <h4 class="font-heading text-white font-bold uppercase tracking-wider mb-6">Contato e Localização</h4>
+                    <ul class="space-y-4">
+                        <li class="flex items-start gap-4">
+                            <i data-lucide="map-pin" class="text-copper w-5 h-5 flex-shrink-0 mt-1"></i>
+                            <div>
+                                <span class="block text-bone/90 text-sm">Rua Fictícia de Exemplo, 123 - Centro</span>
+                                <span class="block text-bone/60 text-sm">Santo André - SP</span>
+                            </div>
+                        </li>
+                        <li class="flex items-center gap-4 mt-2">
+                            <i data-lucide="phone" class="text-copper w-5 h-5"></i>
+                            <a href="tel:+55999999999" class="text-bone/90 hover:text-copper text-sm transition-colors">(99) 99999-9999</a>
+                        </li>
+                        <li class="flex items-center gap-4">
+                            <i data-lucide="mail" class="text-copper w-5 h-5"></i>
+                            <a href="mailto:grdesign.dev@gmail.com" class="text-bone/90 hover:text-copper text-sm transition-colors">grdesign.dev@gmail.com</a>
+                        </li>
+                        <li class="flex items-center gap-4">
+                            <i data-lucide="user" class="text-copper w-5 h-5"></i>
+                            <span class="text-bone/90 text-sm">Responsável: Caique Silva</span>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <!-- Copyright -->
+            <div class="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4 text-center md:text-left">
+                <p class="text-bone/40 text-xs tracking-wider uppercase">© 2026 Navalha de Ouro - Todos os direitos reservados.</p>
+                <p class="text-bone/40 text-xs tracking-wider uppercase">Desenvolvido por Caique Silva</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/559999999999" target="_blank" class="fixed bottom-6 right-6 z-50 bg-[#25D366] text-white p-4 rounded-full shadow-lg hover:scale-110 hover:shadow-[#25D366]/30 transition-all duration-300 group" aria-label="WhatsApp">
+        <i data-lucide="phone" class="w-7 h-7 fill-current group-hover:rotate-12 transition-transform"></i>
+    </a>
+
+    <!-- Custom Scripts -->
+    <script src="js/main.js"></script>
+</body>
+</html>
